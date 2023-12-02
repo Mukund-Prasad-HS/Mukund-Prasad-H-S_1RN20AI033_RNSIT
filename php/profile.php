@@ -9,6 +9,7 @@ $database = $mongoClient->selectDatabase("assessment");
 $collection = $database->selectCollection("users");
 
 
+
 // Function to get the edit profile form
 function getEditForm()
 {
