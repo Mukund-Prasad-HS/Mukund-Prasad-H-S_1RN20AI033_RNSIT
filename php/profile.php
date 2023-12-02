@@ -5,7 +5,7 @@ $uid = $_POST["userid"];
 $mongoClient = new MongoDB\Client("mongodb://localhost:27017");
 
 // Select the database and collection
-$database = $mongoClient->selectDatabase("guvi_task");
+$database = $mongoClient->selectDatabase("assessment");
 $collection = $database->selectCollection("users");
 
 

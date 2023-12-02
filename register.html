@@ -2,72 +2,145 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="style1.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registration Form</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .register {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background-color: #fff;
+      margin-top: 50px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .welcome-image {
+      text-align: center;
+    }
+
+    .welcome-image img {
+      max-width: 10%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .forms {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-btn {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      margin-top: 15px;
+    }
+  </style>
 </head>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="registration.js"></script>
-
 <body>
   <div class="container register">
+    <div class="welcome-image">
+      <img src="images/Namaskar.jpg" alt="Welcome Image" />
+      <h3>Welcome to the sign up process</h3>
+    </div>
     <form id="registrationForm">
       <div>
         <center>
-          <h2>
-            Registration Form
-          </h2>
+          <h2>Fill In</h2>
         </center>
       </div>
       <div class="forms">
-        <div class="form-groupr">
-          <input type="text" class="form-control" name="fullname" placeholder="Full Name" />
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="fullname">Full Name</label>
+              <input type="text" class="form-control" name="fullname" required />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="email" required />
+            </div>
+          </div>
         </div>
-        <br>
-        <div class="form-groupr">
-          <input type="email" class="form-control" name="email" placeholder="Email" />
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password" required />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="repeat_password">Confirm Password</label>
+              <input type="password" class="form-control" name="repeat_password" required />
+            </div>
+          </div>
         </div>
-        <br>
-        <div class="form-groupr">
-          <input type="password" class="form-control" name="password" placeholder="Password" />
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="dob">Date of Birth</label>
+              <input type="date" class="form-control" name="dob" required />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input type="number" class="form-control" name="age" required />
+            </div>
+          </div>
         </div>
-        <br>
-        <div class="form-groupr">
-          <input type="password" class="form-control" name="repeat_password" placeholder="Confirm Password" />
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="contact">Contact Number</label>
+              <input type="tel" class="form-control" name="contact" required />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" name="address" required />
+            </div>
+          </div>
         </div>
-        <br>
-        <div class="form-groupr">
-          <input type="date" class="form-control" name="dob" placeholder="Date of Birth" />
+
+        <div class="form-btn">
+          <input type="submit" class="btn btn-primary" value="SIGN UP" name="submit" />
         </div>
-        <br>
-        <div class="form-groupr">
-          <input type="number" class="form-control" name="age" placeholder="Age" />
-        </div>
-        <br>
-        <div class="form-groupr">
-          <input type="tel" class="form-control" name="contact" placeholder="Contact Number" />
-        </div>
-        <br>
-        <div class="form-groupr">
-          <input type="text" class="form-control" name="address" placeholder="Address" />
-        </div>
-        <br <div class="form-btn">
-        <input type="submit" class="btn btn-primary" value="Register" name="submit" />
+        <p>Already Registered? <a href="login.html">Login Here</a></p>
       </div>
-      <br>
-      <div>
-        <p>Already Registered <a href="login.html">Login Here</a></p>
-      </div>
+    </form>
   </div>
 
-  </form>
-
-  </div>
-
+  
 </body>
 
 </html>

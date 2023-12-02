@@ -5,13 +5,7 @@ if (isset($_POST["login"])) {
     $email = trim($_POST["email"]);
     $password = $_POST["password"];
 
-    $hostName = "localhost";
-    $dbUser = "root";
-    $dbPassword = "";
-    $dbName = "guvi_task";
-
-    $conn = mysqli_connect($hostName, $dbUser, $dbPassword, $dbName);
-
+    $conn = mysqli_connect("localhost", "root", "", "assessment");
     if (!$conn) {
         die("Database connection failed: " . mysqli_connect_error());
     }
@@ -27,9 +21,9 @@ if (isset($_POST["login"])) {
         $user = mysqli_fetch_assoc($result);
 
         if ($user) {
-            // Compare the entered password with the stored password
-            if ($password === $user["password"]) {
-                echo json_encode(['user_id' => $user['full_name']]);
+            // Compare the entered password with the stored hashed password
+            if (password_verify($password, $user["hashed_password"])) {
+                echo json_encode(['success' => true, 'user_id' => $user['full_name']]);
             } else {
                 // Password is incorrect
                 echo json_encode(['error' => 'Password is incorrect']);
@@ -46,3 +40,4 @@ if (isset($_POST["login"])) {
 
     mysqli_close($conn);
 }
+?>

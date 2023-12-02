@@ -14,11 +14,17 @@ $(document).ready(function () {
         var responseData = JSON.parse(response);
         console.log(responseData.user_id);
 
-        localStorage.setItem("user_id", responseData.user_id);
-        window.location.href = "profile.html";
+        if (responseData.success) {
+          localStorage.setItem("user_id", responseData.user_id);
+          window.location.href = "profile.html";
+        } else {
+          // Display an error message on the webpage
+          $("#error-message").text("Login failed. Please check your credentials.");
+        }
       },
       error: function (error) {
-        alert("Login failed. Please check your credentials.");
+        // Display an error message on the webpage
+        $("#error-message").text("Login failed. Please try again later.");
       },
     });
   });
@@ -28,5 +34,8 @@ $(document).ready(function () {
     var passwordInput = $("#password");
     var type = passwordInput.attr("type") === "password" ? "text" : "password";
     passwordInput.attr("type", type);
+
+    // Change the eye icon based on password visibility
+    $(this).toggleClass("fa-eye-slash");
   });
 });
